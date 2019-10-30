@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t gord-star/docker-react -f Dockerfile.dev .
+
+script: 
+  - docker run gord-star/docker-react npm run test -- --coverage
